@@ -1,8 +1,8 @@
 "use client";
 
-import { ThemeOptions, createTheme } from "@mui/material/styles";
+import { createTheme } from "@mui/material/styles";
 
-export const themeOptions: ThemeOptions = {
+export const theme = createTheme({
   palette: {
     mode: "light",
     primary: {
@@ -12,7 +12,7 @@ export const themeOptions: ThemeOptions = {
       main: "#f3a09e",
     },
     text: {
-      primary: "rgba(0,0,0,0.87)",
+      primary: "#555555",
     },
     error: {
       main: "#e61a1a",
@@ -22,8 +22,6 @@ export const themeOptions: ThemeOptions = {
     },
   },
   typography: {
-    fontFamily: "Montserrat",
+    fontFamily: "Montserrat, Arial",
   },
-};
-
-export const theme = createTheme(themeOptions);
+});
