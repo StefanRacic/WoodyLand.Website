@@ -42,7 +42,12 @@ export const GalleryPreview: FC<GalleryProps> = ({ title, text }) => {
       <Grid container spacing={3} py={3}>
         {images.map((image, index) => (
           <Grid item xs={4} key={index}>
-            <img src={image} width="100%" onClick={() => openImage(index)} />
+            <img
+              src={image}
+              width="100%"
+              onClick={() => openImage(index)}
+              style={{ cursor: "pointer" }}
+            />
           </Grid>
         ))}
       </Grid>
