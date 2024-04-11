@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { FC, useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -13,11 +13,12 @@ import MenuItem from "@mui/material/MenuItem";
 import LogoImage from "../../../public/images/Logo.png";
 import Image from "next/image";
 
-const pages = ["Početna", "Galerija", "Usluge", "Kontakt"];
+interface NavbarProps {
+  pages: string[];
+}
 
-function Navbar() {
+const Navbar: FC<NavbarProps> = ({ pages }) => {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
-
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -95,5 +96,6 @@ function Navbar() {
       </Container>
     </AppBar>
   );
-}
+};
+
 export default Navbar;

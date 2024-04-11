@@ -1,7 +1,8 @@
 import Navbar from "@/components/layout/navbar";
-import { ThemeProvider } from "@mui/material";
+import { Container, ThemeProvider } from "@mui/material";
 import type { Metadata } from "next";
 import { theme } from "../config/themes/theme";
+import { Footer } from "@/components/layout/footer";
 
 export const metadata: Metadata = {
   title: "Woodyland - Mesto Kvalitetne Zabave",
@@ -13,12 +14,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const pages = ["Početna", "Galerija", "Usluge", "Kontakt"];
+
   return (
     <html lang="en">
       <body style={{ margin: 0 }}>
         <ThemeProvider theme={theme}>
-          <Navbar />
+          <Navbar pages={pages} />
           {children}
+          <Footer pages={pages} />
         </ThemeProvider>
       </body>
     </html>
