@@ -1,5 +1,5 @@
 "use client";
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -10,14 +10,16 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
-import LogoImage from "../../../public/images/Logo.png";
+import LogoImage from "../../../public/images/woody-circle.svg";
 import Image from "next/image";
+import { Grid, useTheme } from "@mui/material";
 
 interface NavbarProps {
   pages: string[];
 }
 
 const Navbar: FC<NavbarProps> = ({ pages }) => {
+  const theme = useTheme();
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -29,9 +31,42 @@ const Navbar: FC<NavbarProps> = ({ pages }) => {
 
   return (
     <AppBar position="static" color="inherit">
-      <Container maxWidth="xl">
-        <Toolbar>
-          <Image src={LogoImage} width={100} alt="Woodyland" />
+      <Toolbar>
+        <Grid container p={2}>
+          <Grid item xs={10} gap={5} display="flex" alignItems="center">
+            <Image src={LogoImage} width={90} height={90} alt="Woodyland" />
+            <Grid item display="flex" gap={3}>
+              {pages.map((page) => (
+                <Button
+                  variant="text"
+                  sx={{
+                    color: theme.palette.text.primary,
+                    textTransform: "none",
+                  }}
+                  size="large"
+                  key={page}
+                  onClick={handleCloseNavMenu}
+                >
+                  <Typography>{page}</Typography>
+                </Button>
+              ))}
+            </Grid>
+          </Grid>
+          <Grid
+            item
+            xs={2}
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+          >
+            <Button
+              variant="contained"
+              size="large"
+              sx={{ textTransform: "none" }}
+            >
+              Rezervišite
+            </Button>
+          </Grid>
           <Box
             sx={{
               flexGrow: 1,
@@ -73,27 +108,8 @@ const Navbar: FC<NavbarProps> = ({ pages }) => {
               <MenuIcon />
             </IconButton>
           </Box>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" }, pl: 6 }}>
-            {pages.map((page) => (
-              <Button
-                variant="text"
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{
-                  my: 2,
-                  display: "block",
-                  color: "#555555",
-                }}
-              >
-                {page}
-              </Button>
-            ))}
-          </Box>
-          <Button variant="contained" color="secondary">
-            Rezervisite
-          </Button>
-        </Toolbar>
-      </Container>
+        </Grid>
+      </Toolbar>
     </AppBar>
   );
 };

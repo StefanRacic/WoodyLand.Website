@@ -1,12 +1,12 @@
 "use client";
 
-import { createTheme } from "@mui/material/styles";
+import { createTheme } from "@mui/material";
 
 export const theme = createTheme({
   palette: {
     mode: "light",
     primary: {
-      main: "#5b8d50",
+      main: "#5B8D50",
     },
     secondary: {
       main: "#f3a09e",
@@ -15,7 +15,10 @@ export const theme = createTheme({
       primary: "#555555",
     },
     error: {
-      main: "#e61a1a",
+      main: "#FF3131",
+    },
+    warning: {
+      main: "#FAD26C",
     },
     background: {
       default: "#ffffff",

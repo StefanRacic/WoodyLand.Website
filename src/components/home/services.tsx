@@ -1,6 +1,11 @@
 import { Button, Container, Grid, Typography } from "@mui/material";
 import { randomUUID } from "crypto";
+import Image from "next/image";
 import React from "react";
+import BirthdayIcon from "../../../public/images/birthday.svg";
+import BulbIcon from "../../../public/images/bulb.svg";
+import BackyardIcon from "../../../public/images/backyard.svg";
+import ClownIcon from "../../../public/images/clown.svg";
 
 interface Service {
   id: string;
@@ -8,23 +13,25 @@ interface Service {
   description: string;
   url: string;
   color: string;
+  iconUrl: string;
 }
 
 const services: Service[] = [
   {
     id: randomUUID(),
-    title: "Naše usluge",
+    title: "Dečiji rođendani",
     description: `
       Održavanje dečijih rođendana je naša posebnost! Naš tim stručnih
             animatora će se pobrinuti da taj poseban dan bude nezaboravan za
             vaše dete.
       `,
     url: "/",
-    color: "primary",
+    color: "secondary",
+    iconUrl: BirthdayIcon.src,
   },
   {
     id: randomUUID(),
-    title: "Aktivne Radionice",
+    title: "Aktivne radionice",
     description: `
       Aktivne radionice koje će razvijati kreativnost, motoriku i
             socijalne veštine kod dece. Od slikanja i modeliranja, do plesa i
@@ -32,59 +39,77 @@ const services: Service[] = [
             isto vreme.
       `,
     url: "/",
-    color: "primary",
+    color: "warning",
+    iconUrl: BulbIcon.src,
   },
   {
     id: randomUUID(),
-    title: "Iznajmljivanje Prostora",
+    title: "Iznajmljivanje prostora",
     description: `
       Bez obzira da li organizujete korporativni događaj ili porodično
             okupljanje, naš prostor je idealan za sve vrste zabava.
       `,
     url: "/",
     color: "primary",
+    iconUrl: BackyardIcon.src,
   },
   {
     id: randomUUID(),
-    title: "Naše usluge",
+    title: "Igraonica",
     description: `
-      Održavanje dečijih rođendana je naša posebnost! Naš tim stručnih
-            animatora će se pobrinuti da taj poseban dan bude nezaboravan za
-            vaše dete.
+      Bez obzira da li organizujete korporativni događaj ili porodično
+            okupljanje, naš prostor je idealan za sve vrste zabava.
       `,
     url: "/",
-    color: "primary",
+    color: "error",
+    iconUrl: ClownIcon.src,
   },
 ];
 
 export const Services = () => {
   return (
-    <Container maxWidth="xl">
-      <Grid container p={4} gap={5}>
-        <Grid item>
-          <Typography variant="h4">Naše usluge</Typography>
-        </Grid>
-        <Grid container xs={12} py={3}>
-          {services &&
-            services.map((service) => (
-              <Grid
-                key={service.title}
-                item
-                xs={3}
-                px={3}
-                display="flex"
-                direction="column"
-                justifyContent="space-between"
-              >
-                <Typography variant="h5">{service.title}</Typography>
-                <Typography variant="body1">{service.description}</Typography>
-                <Button variant="contained" color={service.color}>
-                  Saznaj Više
-                </Button>
+    <Grid container p={4}>
+      <Grid container xs={12} p={4} spacing={6}>
+        {services &&
+          services.map((service) => (
+            <Grid
+              key={service.title}
+              item
+              xs={12}
+              md={6}
+              display="flex"
+              direction="column"
+              justifyContent="space-between"
+              gap={3}
+            >
+              <Grid container gap={4}>
+                <Grid item display="flex" xs={12} alignItems="center" gap={2}>
+                  <Image alt="" width={45} height={45} src={service.iconUrl} />
+                  <Typography
+                    variant="h5"
+                    textTransform="uppercase"
+                    fontWeight="bold"
+                  >
+                    {service.title}
+                  </Typography>
+                </Grid>
+                <Grid item xs={12}>
+                  <Typography variant="body1">{service.description}</Typography>
+                </Grid>
+                <Grid item>
+                  <Button
+                    variant="contained"
+                    sx={{ textTransform: "none", color: "white", px: 5 }}
+                    color={service.color}
+                    size="large"
+                  >
+                    Više o tome
+                  </Button>
+                </Grid>
               </Grid>
-            ))}
-        </Grid>
+            </Grid>
+          ))}
       </Grid>
-    </Container>
+    </Grid>
   );
 };
