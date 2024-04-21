@@ -5,11 +5,7 @@ import React, { FC } from "react";
 import Image from "next/image";
 import LogoImage from "../../../public/images/woody-circle.svg";
 
-interface FooterProps {
-  pages: string[];
-}
-
-export const Footer: FC<FooterProps> = ({ pages }) => {
+export const Footer = () => {
   return (
     <Box boxShadow={10}>
       <Grid container justifyContent="center" alignItems="center" py={6}>

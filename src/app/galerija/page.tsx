@@ -1,23 +1,20 @@
 "use client";
-import {
-  Box,
-  Button,
-  Container,
-  Grid,
-  Typography,
-  useTheme,
-} from "@mui/material";
-import Image from "next/image";
-import React, { FC, useState } from "react";
-import BannerImage from "../../../public/images/woodyland-banner.jpeg";
+import { Box, Button, Grid, Typography } from "@mui/material";
 import FsLightbox from "fslightbox-react";
+import BannerImage from "../../../public/images/banner.jpeg";
+import { useState } from "react";
 
-export const GalleryPreview = () => {
+const Gallery = () => {
   const [imageIndex, setImageIndex] = useState(0);
   const [toggler, setToggler] = useState(false);
-  const theme = useTheme();
 
   const images = [
+    BannerImage.src,
+    BannerImage.src,
+    BannerImage.src,
+    BannerImage.src,
+    BannerImage.src,
+    BannerImage.src,
     BannerImage.src,
     BannerImage.src,
     BannerImage.src,
@@ -32,7 +29,7 @@ export const GalleryPreview = () => {
   };
   return (
     <Box>
-      <Grid container justifyContent="center" gap={3} py={8}>
+      <Grid container justifyContent="center" gap={3} py={10}>
         <Grid
           container
           justifyContent="center"
@@ -66,16 +63,6 @@ export const GalleryPreview = () => {
             </Grid>
           ))}
         </Grid>
-        <Grid container justifyContent="center">
-          <Button
-            variant="contained"
-            color="secondary"
-            size="large"
-            sx={{ color: "white", px: 6 }}
-          >
-            Galerija
-          </Button>
-        </Grid>
       </Grid>
       <FsLightbox
         toggler={toggler}
@@ -85,3 +72,5 @@ export const GalleryPreview = () => {
     </Box>
   );
 };
+
+export default Gallery;

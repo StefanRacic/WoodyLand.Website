@@ -14,15 +14,13 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const pages = ["Početna", "Galerija", "Usluge", "Kontakt"];
-
   return (
     <html lang="en">
       <body style={{ margin: 0 }}>
         <ThemeProvider theme={theme}>
-          <Navbar pages={pages} />
+          <Navbar />
           {children}
-          <Footer pages={pages} />
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

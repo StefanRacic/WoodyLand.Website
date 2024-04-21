@@ -27,10 +27,7 @@ export default function index() {
         textColor="white"
         imageUrl={AirplaneImage.src}
       />
-      <GalleryPreview
-        title="Zavirite u naš svet"
-        text="Zavirite u mesto nezaboravnih dečijih rođendanskih zabava koje su ispunjene radošću, smehom i avanturama."
-      />
+      <GalleryPreview />
       <CallToAction
         title="Čekamo vas!"
         text="Dođite i posetite nas u Woody Land-u i iskusite fantastičan svet dečije zabave! Vaša deca će obožavati naše igre i aktivnosti, a vi ćete biti mirni znajući da su u sigurnim rukama našeg posvećenog osoblja."

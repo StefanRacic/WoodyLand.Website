@@ -7,7 +7,7 @@ import BulbIcon from "../../../public/images/bulb.svg";
 import BackyardIcon from "../../../public/images/backyard.svg";
 import ClownIcon from "../../../public/images/clown.svg";
 
-interface Service {
+export interface Service {
   id: string;
   title: string;
   description: string;
@@ -56,10 +56,8 @@ const services: Service[] = [
   {
     id: randomUUID(),
     title: "Igraonica",
-    description: `
-      Bez obzira da li organizujete korporativni događaj ili porodično
-            okupljanje, naš prostor je idealan za sve vrste zabava.
-      `,
+    description:
+      "U Woodyland igraonici, roditelji mogu biti mirni znajući da su njihova deca na sigurnom i da se istovremeno zabavljaju i uče. Radno vreme igraonice je promenljivo usled rođendanskih termina, tako da je preporuka proveriti radno vreme putem kontakta ili instagram stranice.",
     url: "/",
     color: "error",
     iconUrl: ClownIcon.src,
@@ -69,7 +67,7 @@ const services: Service[] = [
 export const Services = () => {
   return (
     <Grid container p={4}>
-      <Grid container xs={12} p={4} spacing={6}>
+      <Grid container p={4} spacing={6}>
         {services &&
           services.map((service) => (
             <Grid
@@ -78,7 +76,6 @@ export const Services = () => {
               xs={12}
               md={6}
               display="flex"
-              direction="column"
               justifyContent="space-between"
               gap={3}
             >

@@ -1,5 +1,5 @@
 "use client";
-import React, { FC, useEffect, useState } from "react";
+import React, { FC, useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -7,20 +7,26 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
-import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import LogoImage from "../../../public/images/woody-circle.svg";
 import Image from "next/image";
 import { Grid, useTheme } from "@mui/material";
+import Link from "next/link";
 
-interface NavbarProps {
-  pages: string[];
-}
-
-const Navbar: FC<NavbarProps> = ({ pages }) => {
+const Navbar = () => {
   const theme = useTheme();
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const open = Boolean(anchorEl);
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
+
+  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -36,7 +42,7 @@ const Navbar: FC<NavbarProps> = ({ pages }) => {
           <Grid item xs={10} gap={5} display="flex" alignItems="center">
             <Image src={LogoImage} width={90} height={90} alt="Woodyland" />
             <Grid item display="flex" gap={3}>
-              {pages.map((page) => (
+              <Link href="/">
                 <Button
                   variant="text"
                   sx={{
@@ -44,12 +50,92 @@ const Navbar: FC<NavbarProps> = ({ pages }) => {
                     textTransform: "none",
                   }}
                   size="large"
-                  key={page}
+                  key={1}
                   onClick={handleCloseNavMenu}
                 >
-                  <Typography>{page}</Typography>
+                  <Typography>Početna</Typography>
                 </Button>
-              ))}
+              </Link>
+            </Grid>
+            <Grid item display="flex" gap={3}>
+              <Link href="/galerija">
+                <Button
+                  variant="text"
+                  sx={{
+                    color: theme.palette.text.primary,
+                    textTransform: "none",
+                  }}
+                  size="large"
+                  key={1}
+                  onClick={handleCloseNavMenu}
+                >
+                  <Typography>Galerija</Typography>
+                </Button>
+              </Link>
+            </Grid>
+            <Grid item display="flex" gap={3}>
+              <Button
+                variant="text"
+                sx={{
+                  color: theme.palette.text.primary,
+                  textTransform: "none",
+                }}
+                size="large"
+                key={1}
+                onClick={handleClick}
+              >
+                <Typography>Usluge</Typography>
+              </Button>
+              <Menu
+                anchorEl={anchorEl}
+                open={open}
+                onClose={handleClose}
+                anchorOrigin={{
+                  vertical: "bottom",
+                  horizontal: "left",
+                }}
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "left",
+                }}
+              >
+                <Link
+                  href="/usluge/rodjendani"
+                  style={{ color: "black", textDecoration: "none" }}
+                >
+                  <MenuItem onClick={handleClose}>
+                    <Typography variant="body1">Rođendani</Typography>
+                  </MenuItem>
+                </Link>
+                <Link
+                  href="/usluge/radionice"
+                  style={{ color: "black", textDecoration: "none" }}
+                >
+                  <MenuItem onClick={handleClose}>Radionice</MenuItem>
+                </Link>
+                <Link
+                  href="/usluge/familyday"
+                  style={{ color: "black", textDecoration: "none" }}
+                >
+                  <MenuItem onClick={handleClose}>Family Day</MenuItem>
+                </Link>
+              </Menu>
+            </Grid>
+            <Grid item display="flex" gap={3}>
+              <Link href="/kontakt">
+                <Button
+                  variant="text"
+                  sx={{
+                    color: theme.palette.text.primary,
+                    textTransform: "none",
+                  }}
+                  size="large"
+                  key={1}
+                  onClick={handleCloseNavMenu}
+                >
+                  <Typography>Kontakt</Typography>
+                </Button>
+              </Link>
             </Grid>
           </Grid>
           <Grid
@@ -92,11 +178,9 @@ const Navbar: FC<NavbarProps> = ({ pages }) => {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
+              <MenuItem key={1} onClick={handleCloseNavMenu}>
+                <Typography textAlign="center">Početna</Typography>
+              </MenuItem>
             </Menu>
             <IconButton
               size="large"
