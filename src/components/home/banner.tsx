@@ -14,48 +14,27 @@ export const Banner = () => {
       alignItems="center"
       direction="row"
     >
-      {isMobile ? (
-        <Grid
-          item
-          xs={12}
-          md={6}
-          p={15}
-          sx={{
-            backgroundImage: `url(${BannerImage.src})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        ></Grid>
-      ) : (
-        <>
-          <Grid
-            item
-            xs={12}
-            md={6}
-            p={isMobile ? 6 : 10}
-            sx={{
-              backgroundImage: isMobile
-                ? `linear-gradient(0deg, rgba(91, 141, 80, 0.2),rgba(91, 141, 80, 0.2)), url(${BannerImage.src})`
-                : "",
-              backgroundSize: "cover",
-            }}
-          >
-            <Typography variant={"h1"}>
-              Dobrodošli<br></br> u Woodyland<br></br> Mesto kvalitetne zabave!
-            </Typography>
-          </Grid>
-          <Grid
-            item
-            xs={12}
-            md={6}
-            sx={{
-              backgroundImage: `url(${BannerImage.src})`,
-              backgroundSize: "cover",
-            }}
-            height={600}
-          ></Grid>
-        </>
-      )}
+      <Grid
+        item
+        display={{ xs: "none", md: "block" }}
+        xs={12}
+        md={6}
+        p={{ xs: 6, md: 10 }}
+      >
+        <Typography variant={"h1"}>
+          Dobrodošli<br></br> u Woodyland<br></br> Mesto kvalitetne zabave!
+        </Typography>
+      </Grid>
+      <Grid
+        item
+        xs={12}
+        md={6}
+        sx={{
+          backgroundImage: `url(${BannerImage.src})`,
+          backgroundSize: "cover",
+        }}
+        height={{ xs: 250, md: 600 }}
+      ></Grid>
     </Grid>
   );
 };

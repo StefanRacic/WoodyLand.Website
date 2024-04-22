@@ -97,7 +97,13 @@ export const Services = () => {
                   <Link href={service.url}>
                     <Button
                       variant="contained"
-                      sx={{ textTransform: "none", color: "white", px: 5 }}
+                      sx={{
+                        textTransform: "none",
+                        color: "white",
+                        px: 5,
+                      }}
+                      // @ts-ignore
+                      color={service.color}
                       size="large"
                     >
                       Više o tome
