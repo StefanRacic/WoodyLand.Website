@@ -92,7 +92,7 @@ const BirthdaysService = () => {
         title="Čekamo vas!"
         text="Dođite i posetite nas u Woody Land-u i iskusite fantastičan svet dečije zabave! Vaša deca će obožavati naše igre i aktivnosti, a vi ćete biti mirni znajući da su u sigurnim rukama našeg posvećenog osoblja."
         buttonText="Kontakt"
-        link="/"
+        link="/kontakt"
         backgroundColor="#5B8D50"
         textColor="white"
       />

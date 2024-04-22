@@ -52,7 +52,7 @@ const FamilyDayService = () => {
         title="Rezervacija i dostupnost"
         text="Family Day usluga je dostupna tokom letnjeg perioda. Budite sigurni da će vaša proslava ili porodično okupljanje biti zaista posebna kada rezervišete ceo prostor igraonice za sebe. Za rezervacije i više informacija o cenama i dostupnosti, kontaktirajte nas direktno putem telefona, email-a, instagrama ili kontakt forme. Pridružite nam se i napravite nezaboravne uspomene sa svojim najdražima!"
         buttonText="Kontakt"
-        link="/"
+        link="/kontakt"
         backgroundColor="#5B8D50"
         textColor="white"
       />
