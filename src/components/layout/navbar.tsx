@@ -44,52 +44,18 @@ const Navbar = () => {
   return (
     <AppBar position="static" color="inherit">
       <Toolbar>
-        <Grid container p={2}>
-          <Grid
-            item
-            xs={isMobile ? 6 : 10}
-            gap={5}
-            display="flex"
-            alignItems="center"
-          >
+        <Grid container p={{ xs: 1, md: 2 }}>
+          <Grid item xs={6} md={10} gap={5} display="flex" alignItems="center">
             <Link href="/">
-              <Image src={LogoImage} width={90} height={90} alt="Woodyland" />
+              <Image
+                src={LogoImage}
+                height={`${isMobile ? 70 : 90}`}
+                alt="Woodyland"
+              />
             </Link>
-            {!isMobile && (
-              <>
-                <Grid item display="flex" gap={3}>
-                  <Link href="/">
-                    <Button
-                      variant="text"
-                      sx={{
-                        color: theme.palette.text.primary,
-                        textTransform: "none",
-                      }}
-                      size="large"
-                      key={1}
-                      onClick={handleCloseNavMenu}
-                    >
-                      <Typography>Početna</Typography>
-                    </Button>
-                  </Link>
-                </Grid>
-                <Grid item display="flex" gap={3}>
-                  <Link href="/galerija">
-                    <Button
-                      variant="text"
-                      sx={{
-                        color: theme.palette.text.primary,
-                        textTransform: "none",
-                      }}
-                      size="large"
-                      key={1}
-                      onClick={handleCloseNavMenu}
-                    >
-                      <Typography>Galerija</Typography>
-                    </Button>
-                  </Link>
-                </Grid>
-                <Grid item display="flex" gap={3}>
+            <Grid container display={{ xs: "none", md: "flex" }}>
+              <Grid item display="flex" gap={3}>
+                <Link href="/">
                   <Button
                     variant="text"
                     sx={{
@@ -98,83 +64,111 @@ const Navbar = () => {
                     }}
                     size="large"
                     key={1}
-                    onClick={handleClick}
+                    onClick={handleCloseNavMenu}
                   >
-                    <Typography>Usluge</Typography>
+                    <Typography>Početna</Typography>
                   </Button>
-                  <Menu
-                    anchorEl={anchorEl}
-                    open={open}
-                    onClose={handleClose}
-                    anchorOrigin={{
-                      vertical: "bottom",
-                      horizontal: "left",
+                </Link>
+              </Grid>
+              <Grid item display="flex" gap={3}>
+                <Link href="/galerija">
+                  <Button
+                    variant="text"
+                    sx={{
+                      color: theme.palette.text.primary,
+                      textTransform: "none",
                     }}
-                    transformOrigin={{
-                      vertical: "top",
-                      horizontal: "left",
-                    }}
+                    size="large"
+                    key={1}
+                    onClick={handleCloseNavMenu}
                   >
-                    <Link
-                      href="/usluge/rodjendani"
-                      style={{ color: "black", textDecoration: "none" }}
-                    >
-                      <MenuItem onClick={handleClose}>
-                        <Typography variant="body1">Rođendani</Typography>
-                      </MenuItem>
-                    </Link>
-                    <Link
-                      href="/usluge/radionice"
-                      style={{ color: "black", textDecoration: "none" }}
-                    >
-                      <MenuItem onClick={handleClose}>Radionice</MenuItem>
-                    </Link>
-                    <Link
-                      href="/usluge/familyday"
-                      style={{ color: "black", textDecoration: "none" }}
-                    >
-                      <MenuItem onClick={handleClose}>Family Day</MenuItem>
-                    </Link>
-                  </Menu>
-                </Grid>
-                <Grid item display="flex" gap={3}>
-                  <Link href="/kontakt">
-                    <Button
-                      variant="text"
-                      sx={{
-                        color: theme.palette.text.primary,
-                        textTransform: "none",
-                      }}
-                      size="large"
-                      key={1}
-                      onClick={handleCloseNavMenu}
-                    >
-                      <Typography>Kontakt</Typography>
-                    </Button>
-                  </Link>
-                </Grid>
-              </>
-            )}
-          </Grid>
-          {!isMobile && (
-            <Grid
-              item
-              xs={2}
-              display="flex"
-              justifyContent="center"
-              alignItems="center"
-            >
-              <Link href="/kontakt">
+                    <Typography>Galerija</Typography>
+                  </Button>
+                </Link>
+              </Grid>
+              <Grid item display="flex" gap={3}>
                 <Button
-                  variant="contained"
+                  variant="text"
+                  sx={{
+                    color: theme.palette.text.primary,
+                    textTransform: "none",
+                  }}
                   size="large"
-                  sx={{ textTransform: "none" }}
+                  key={1}
+                  onClick={handleClick}
                 >
-                  Rezervišite
+                  <Typography>Usluge</Typography>
                 </Button>
-              </Link>
+                <Menu
+                  anchorEl={anchorEl}
+                  open={open}
+                  onClose={handleClose}
+                  anchorOrigin={{
+                    vertical: "bottom",
+                    horizontal: "left",
+                  }}
+                  transformOrigin={{
+                    vertical: "top",
+                    horizontal: "left",
+                  }}
+                >
+                  <Link
+                    href="/usluge/rodjendani"
+                    style={{ color: "black", textDecoration: "none" }}
+                  >
+                    <MenuItem onClick={handleClose}>
+                      <Typography variant="body1">Rođendani</Typography>
+                    </MenuItem>
+                  </Link>
+                  <Link
+                    href="/usluge/radionice"
+                    style={{ color: "black", textDecoration: "none" }}
+                  >
+                    <MenuItem onClick={handleClose}>Radionice</MenuItem>
+                  </Link>
+                  <Link
+                    href="/usluge/familyday"
+                    style={{ color: "black", textDecoration: "none" }}
+                  >
+                    <MenuItem onClick={handleClose}>Family Day</MenuItem>
+                  </Link>
+                </Menu>
+              </Grid>
+              <Grid item display="flex" gap={3}>
+                <Link href="/kontakt">
+                  <Button
+                    variant="text"
+                    sx={{
+                      color: theme.palette.text.primary,
+                      textTransform: "none",
+                    }}
+                    size="large"
+                    key={1}
+                    onClick={handleCloseNavMenu}
+                  >
+                    <Typography>Kontakt</Typography>
+                  </Button>
+                </Link>
+              </Grid>
             </Grid>
-          )}
+          </Grid>
+          <Grid
+            item
+            xs={2}
+            display={{ xs: "none", md: "flex" }}
+            justifyContent="center"
+            alignItems="center"
+          >
+            <Link href="/kontakt">
+              <Button
+                variant="contained"
+                size="large"
+                sx={{ textTransform: "none" }}
+              >
+                Rezervišite
+              </Button>
+            </Link>
+          </Grid>
 
           <Grid
             item

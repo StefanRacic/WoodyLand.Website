@@ -1,6 +1,7 @@
 "use client";
 import useIsMobile from "@/hooks/use-is-mobile";
 import { Button, Grid, Typography } from "@mui/material";
+import Link from "next/link";
 import React, { FC } from "react";
 
 interface CallToActionProps {
@@ -48,15 +49,16 @@ export const CallToAction: FC<CallToActionProps> = ({
         </Typography>
       </Grid>
       <Grid item xs={12} md={4} display="flex" justifyContent="center">
-        <Button
-          variant="contained"
-          color="inherit"
-          sx={{ backgroundColor: "white", color: "black", px: 8, py: 2 }}
-          href={link}
-          size="large"
-        >
-          {buttonText}
-        </Button>
+        <Link href={link}>
+          <Button
+            variant="contained"
+            color="inherit"
+            sx={{ backgroundColor: "white", color: "black", px: 8, py: 2 }}
+            size="large"
+          >
+            {buttonText}
+          </Button>
+        </Link>
       </Grid>
     </Grid>
   );

@@ -19,7 +19,7 @@ const Contact = () => {
       >
         <Grid item xs={12} md={6} display="flex" flexDirection="column" gap={3}>
           <Grid container gap={3}>
-            <Typography variant="h3">Kontaktirajte nas</Typography>
+            <Typography variant="h4">Kontaktirajte nas</Typography>
             <Typography variant="body1">
               Ukoliko imate bilo kakva pitanja ili želite da proverite
               dostupnost naše igraonice budite slobodni da nas kontaktirate
@@ -30,10 +30,12 @@ const Contact = () => {
             </Typography>
           </Grid>
           <Grid container flexDirection="column" gap={2}>
-            <Typography variant="h4">🏡 Šajkaška 54, Novi Sad</Typography>
-            <Typography variant="h4">📞 0642544579</Typography>
-            <Typography variant="h4">📧 rodjendaonica@woodyland.rs</Typography>
-            <Typography variant="h4">📸 woody__playandlearn</Typography>
+            <Typography variant="body1">🏡 Šajkaška 54, Novi Sad</Typography>
+            <Typography variant="body1">📞 0642544579</Typography>
+            <Typography variant="body1">
+              📧 rodjendaonica@woodyland.rs
+            </Typography>
+            <Typography variant="body1">📸 woody__playandlearn</Typography>
           </Grid>
         </Grid>
         <Grid
