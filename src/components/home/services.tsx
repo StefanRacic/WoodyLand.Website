@@ -98,7 +98,6 @@ export const Services = () => {
                     <Button
                       variant="contained"
                       sx={{ textTransform: "none", color: "white", px: 5 }}
-                      color={service.color}
                       size="large"
                     >
                       Više o tome

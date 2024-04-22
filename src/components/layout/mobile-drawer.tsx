@@ -151,7 +151,6 @@ const MobileDrawer: FC<MobileDrawerProps> = ({ open, toggleDrawer }) => {
             <Button
               variant="contained"
               fullWidth
-              sx={{ textTransform: "none" }}
               startIcon={<EmailOutlined />}
               href="mailto:rodjendaonica@woodyland.rs"
               sx={{ backgroundColor: "#FAD26C", textTransform: "none" }}
