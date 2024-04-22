@@ -3,11 +3,12 @@ import { Box, Button, Grid, Typography } from "@mui/material";
 import FsLightbox from "fslightbox-react";
 import BannerImage from "../../../public/images/banner.jpeg";
 import { useState } from "react";
+import useIsMobile from "@/hooks/use-is-mobile";
 
 const Gallery = () => {
+  const isMobile = useIsMobile();
   const [imageIndex, setImageIndex] = useState(0);
   const [toggler, setToggler] = useState(false);
-
   const images = [
     BannerImage.src,
     BannerImage.src,
@@ -29,7 +30,13 @@ const Gallery = () => {
   };
   return (
     <Box>
-      <Grid container justifyContent="center" gap={3} py={10}>
+      <Grid
+        container
+        justifyContent="center"
+        gap={3}
+        p={isMobile ? 3 : ""}
+        py={isMobile ? "" : 10}
+      >
         <Grid
           container
           justifyContent="center"
@@ -37,7 +44,7 @@ const Gallery = () => {
           direction="column"
           gap={3}
         >
-          <Typography variant="h3" fontWeight="bold">
+          <Typography variant={isMobile ? "h4" : "h3"}>
             Zavirite u naš svet
           </Typography>
           <Typography variant="body1">
@@ -53,7 +60,7 @@ const Gallery = () => {
           py={3}
         >
           {images.map((image, index) => (
-            <Grid item xs={4} key={index}>
+            <Grid item xs={12} md={4} key={index}>
               <img
                 src={image}
                 width="100%"

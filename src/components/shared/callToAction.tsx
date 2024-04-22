@@ -1,3 +1,5 @@
+"use client";
+import useIsMobile from "@/hooks/use-is-mobile";
 import { Button, Grid, Typography } from "@mui/material";
 import React, { FC } from "react";
 
@@ -18,13 +20,16 @@ export const CallToAction: FC<CallToActionProps> = ({
   backgroundColor,
   textColor,
 }) => {
+  const isMobile = useIsMobile();
   return (
     <Grid
       container
       justifyContent="space-between"
       alignItems="center"
-      p={12}
+      p={isMobile ? 3 : 12}
       sx={{ backgroundColor: { backgroundColor } }}
+      gap={isMobile ? 3 : 0}
+      textAlign={isMobile ? "center" : "initial"}
     >
       <Grid
         item
@@ -33,9 +38,9 @@ export const CallToAction: FC<CallToActionProps> = ({
         display="flex"
         flexDirection="column"
         justifyContent="center"
-        gap={2}
+        gap={3}
       >
-        <Typography variant="h3" color={textColor} fontWeight="bold">
+        <Typography variant={isMobile ? "h4" : "h3"} color={textColor}>
           {title}
         </Typography>
         <Typography variant="body1" color={textColor}>

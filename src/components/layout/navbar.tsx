@@ -13,13 +13,19 @@ import LogoImage from "../../../public/images/woody-circle.svg";
 import Image from "next/image";
 import { Grid, useTheme } from "@mui/material";
 import Link from "next/link";
+import useIsMobile from "@/hooks/use-is-mobile";
+import MobileDrawer from "./mobile-drawer";
 
 const Navbar = () => {
   const theme = useTheme();
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
-
+  const isMobile = useIsMobile();
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const toggleDrawer = (newOpen: boolean) => () => {
+    setDrawerOpen(newOpen);
+  };
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
@@ -39,159 +45,156 @@ const Navbar = () => {
     <AppBar position="static" color="inherit">
       <Toolbar>
         <Grid container p={2}>
-          <Grid item xs={10} gap={5} display="flex" alignItems="center">
-            <Image src={LogoImage} width={90} height={90} alt="Woodyland" />
-            <Grid item display="flex" gap={3}>
-              <Link href="/">
-                <Button
-                  variant="text"
-                  sx={{
-                    color: theme.palette.text.primary,
-                    textTransform: "none",
-                  }}
-                  size="large"
-                  key={1}
-                  onClick={handleCloseNavMenu}
-                >
-                  <Typography>Početna</Typography>
-                </Button>
-              </Link>
-            </Grid>
-            <Grid item display="flex" gap={3}>
-              <Link href="/galerija">
-                <Button
-                  variant="text"
-                  sx={{
-                    color: theme.palette.text.primary,
-                    textTransform: "none",
-                  }}
-                  size="large"
-                  key={1}
-                  onClick={handleCloseNavMenu}
-                >
-                  <Typography>Galerija</Typography>
-                </Button>
-              </Link>
-            </Grid>
-            <Grid item display="flex" gap={3}>
-              <Button
-                variant="text"
-                sx={{
-                  color: theme.palette.text.primary,
-                  textTransform: "none",
-                }}
-                size="large"
-                key={1}
-                onClick={handleClick}
-              >
-                <Typography>Usluge</Typography>
-              </Button>
-              <Menu
-                anchorEl={anchorEl}
-                open={open}
-                onClose={handleClose}
-                anchorOrigin={{
-                  vertical: "bottom",
-                  horizontal: "left",
-                }}
-                transformOrigin={{
-                  vertical: "top",
-                  horizontal: "left",
-                }}
-              >
-                <Link
-                  href="/usluge/rodjendani"
-                  style={{ color: "black", textDecoration: "none" }}
-                >
-                  <MenuItem onClick={handleClose}>
-                    <Typography variant="body1">Rođendani</Typography>
-                  </MenuItem>
-                </Link>
-                <Link
-                  href="/usluge/radionice"
-                  style={{ color: "black", textDecoration: "none" }}
-                >
-                  <MenuItem onClick={handleClose}>Radionice</MenuItem>
-                </Link>
-                <Link
-                  href="/usluge/familyday"
-                  style={{ color: "black", textDecoration: "none" }}
-                >
-                  <MenuItem onClick={handleClose}>Family Day</MenuItem>
-                </Link>
-              </Menu>
-            </Grid>
-            <Grid item display="flex" gap={3}>
-              <Link href="/kontakt">
-                <Button
-                  variant="text"
-                  sx={{
-                    color: theme.palette.text.primary,
-                    textTransform: "none",
-                  }}
-                  size="large"
-                  key={1}
-                  onClick={handleCloseNavMenu}
-                >
-                  <Typography>Kontakt</Typography>
-                </Button>
-              </Link>
-            </Grid>
-          </Grid>
           <Grid
             item
-            xs={2}
+            xs={isMobile ? 6 : 10}
+            gap={5}
             display="flex"
-            justifyContent="center"
             alignItems="center"
           >
-            <Button
-              variant="contained"
-              size="large"
-              sx={{ textTransform: "none" }}
-            >
-              Rezervišite
-            </Button>
+            <Link href="/">
+              <Image src={LogoImage} width={90} height={90} alt="Woodyland" />
+            </Link>
+            {!isMobile && (
+              <>
+                <Grid item display="flex" gap={3}>
+                  <Link href="/">
+                    <Button
+                      variant="text"
+                      sx={{
+                        color: theme.palette.text.primary,
+                        textTransform: "none",
+                      }}
+                      size="large"
+                      key={1}
+                      onClick={handleCloseNavMenu}
+                    >
+                      <Typography>Početna</Typography>
+                    </Button>
+                  </Link>
+                </Grid>
+                <Grid item display="flex" gap={3}>
+                  <Link href="/galerija">
+                    <Button
+                      variant="text"
+                      sx={{
+                        color: theme.palette.text.primary,
+                        textTransform: "none",
+                      }}
+                      size="large"
+                      key={1}
+                      onClick={handleCloseNavMenu}
+                    >
+                      <Typography>Galerija</Typography>
+                    </Button>
+                  </Link>
+                </Grid>
+                <Grid item display="flex" gap={3}>
+                  <Button
+                    variant="text"
+                    sx={{
+                      color: theme.palette.text.primary,
+                      textTransform: "none",
+                    }}
+                    size="large"
+                    key={1}
+                    onClick={handleClick}
+                  >
+                    <Typography>Usluge</Typography>
+                  </Button>
+                  <Menu
+                    anchorEl={anchorEl}
+                    open={open}
+                    onClose={handleClose}
+                    anchorOrigin={{
+                      vertical: "bottom",
+                      horizontal: "left",
+                    }}
+                    transformOrigin={{
+                      vertical: "top",
+                      horizontal: "left",
+                    }}
+                  >
+                    <Link
+                      href="/usluge/rodjendani"
+                      style={{ color: "black", textDecoration: "none" }}
+                    >
+                      <MenuItem onClick={handleClose}>
+                        <Typography variant="body1">Rođendani</Typography>
+                      </MenuItem>
+                    </Link>
+                    <Link
+                      href="/usluge/radionice"
+                      style={{ color: "black", textDecoration: "none" }}
+                    >
+                      <MenuItem onClick={handleClose}>Radionice</MenuItem>
+                    </Link>
+                    <Link
+                      href="/usluge/familyday"
+                      style={{ color: "black", textDecoration: "none" }}
+                    >
+                      <MenuItem onClick={handleClose}>Family Day</MenuItem>
+                    </Link>
+                  </Menu>
+                </Grid>
+                <Grid item display="flex" gap={3}>
+                  <Link href="/kontakt">
+                    <Button
+                      variant="text"
+                      sx={{
+                        color: theme.palette.text.primary,
+                        textTransform: "none",
+                      }}
+                      size="large"
+                      key={1}
+                      onClick={handleCloseNavMenu}
+                    >
+                      <Typography>Kontakt</Typography>
+                    </Button>
+                  </Link>
+                </Grid>
+              </>
+            )}
           </Grid>
-          <Box
+          {!isMobile && (
+            <Grid
+              item
+              xs={2}
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+            >
+              <Link href="/kontakt">
+                <Button
+                  variant="contained"
+                  size="large"
+                  sx={{ textTransform: "none" }}
+                >
+                  Rezervišite
+                </Button>
+              </Link>
+            </Grid>
+          )}
+
+          <Grid
+            item
             sx={{
               flexGrow: 1,
               display: { xs: "flex", md: "none" },
               justifyContent: "end",
             }}
           >
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: "block", md: "none" },
-              }}
-            >
-              <MenuItem key={1} onClick={handleCloseNavMenu}>
-                <Typography textAlign="center">Početna</Typography>
-              </MenuItem>
-            </Menu>
             <IconButton
               size="large"
               aria-controls="menu-appbar"
               aria-haspopup="true"
-              onClick={handleOpenNavMenu}
+              onClick={toggleDrawer(true)}
               color="inherit"
             >
-              <MenuIcon />
+              <MenuIcon fontSize="large" />
             </IconButton>
-          </Box>
+            <MobileDrawer open={drawerOpen} toggleDrawer={toggleDrawer} />
+          </Grid>
         </Grid>
       </Toolbar>
     </AppBar>

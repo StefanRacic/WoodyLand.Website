@@ -1,5 +1,6 @@
+"use client";
+import useIsMobile from "@/hooks/use-is-mobile";
 import { Grid, Typography } from "@mui/material";
-import Image from "next/image";
 import React, { FC } from "react";
 
 interface ImageTextProps {
@@ -18,6 +19,7 @@ export const ImageText: FC<ImageTextProps> = ({
   textColor,
   imageUrl,
 }) => {
+  const isMobile = useIsMobile();
   return (
     <Grid
       container
@@ -25,7 +27,7 @@ export const ImageText: FC<ImageTextProps> = ({
       alignItems="top"
       direction={imageLeft ? "row-reverse" : "row"}
       sx={{ backgroundColor: backgroundColor ? backgroundColor : "" }}
-      py={10}
+      py={isMobile ? 5 : 10}
     >
       <Grid
         item
@@ -33,24 +35,26 @@ export const ImageText: FC<ImageTextProps> = ({
         md={5}
         display="flex"
         flexDirection="column"
-        pt={10}
+        p={isMobile ? 3 : 0}
+        pt={isMobile ? 0 : 10}
         gap={1}
       >
-        <Typography variant="h3" fontWeight="bold" color={textColor}>
+        <Typography variant={isMobile ? "h4" : "h3"} color={textColor}>
           {title}
         </Typography>
         <Typography variant="body1" color={textColor}>
           {text}
         </Typography>
       </Grid>
-      <Grid item xs={12} md={5} textAlign={imageLeft ? "left" : "right"}>
-        <Image
-          src={imageUrl}
-          alt="Banner"
-          width={665}
-          height={395}
-          style={{ borderRadius: 15 }}
-        />
+      <Grid
+        item
+        xs={12}
+        md={6}
+        textAlign={imageLeft ? "left" : "right"}
+        display="flex"
+        justifyContent="center"
+      >
+        <img src={imageUrl} width="90%" style={{ borderRadius: 15 }} />
       </Grid>
     </Grid>
   );

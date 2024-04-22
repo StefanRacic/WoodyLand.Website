@@ -11,11 +11,13 @@ import Image from "next/image";
 import React, { FC, useState } from "react";
 import BannerImage from "../../../public/images/woodyland-banner.jpeg";
 import FsLightbox from "fslightbox-react";
+import useIsMobile from "@/hooks/use-is-mobile";
+import Link from "next/link";
 
 export const GalleryPreview = () => {
   const [imageIndex, setImageIndex] = useState(0);
   const [toggler, setToggler] = useState(false);
-  const theme = useTheme();
+  const isMobile = useIsMobile();
 
   const images = [
     BannerImage.src,
@@ -32,7 +34,13 @@ export const GalleryPreview = () => {
   };
   return (
     <Box>
-      <Grid container justifyContent="center" gap={3} py={8}>
+      <Grid
+        container
+        gap={3}
+        py={isMobile ? 6 : 10}
+        p={isMobile ? 3 : ""}
+        justifyContent="center"
+      >
         <Grid
           container
           justifyContent="center"
@@ -40,7 +48,7 @@ export const GalleryPreview = () => {
           direction="column"
           gap={3}
         >
-          <Typography variant="h3" fontWeight="bold">
+          <Typography variant={isMobile ? "h4" : "h3"}>
             Zavirite u naš svet
           </Typography>
           <Typography variant="body1">
@@ -56,7 +64,7 @@ export const GalleryPreview = () => {
           py={3}
         >
           {images.map((image, index) => (
-            <Grid item xs={4} key={index}>
+            <Grid item xs={isMobile ? 6 : 4} key={index}>
               <img
                 src={image}
                 width="100%"
@@ -67,14 +75,16 @@ export const GalleryPreview = () => {
           ))}
         </Grid>
         <Grid container justifyContent="center">
-          <Button
-            variant="contained"
-            color="secondary"
-            size="large"
-            sx={{ color: "white", px: 6 }}
-          >
-            Galerija
-          </Button>
+          <Link href="/galerija">
+            <Button
+              variant="contained"
+              color="secondary"
+              size="large"
+              sx={{ color: "white", px: 6 }}
+            >
+              Galerija
+            </Button>
+          </Link>
         </Grid>
       </Grid>
       <FsLightbox

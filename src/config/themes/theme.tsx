@@ -25,6 +25,18 @@ export const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: "Montserrat, Arial",
+    fontFamily: "Nunito",
+    h1: {
+      fontSize: 48,
+    },
+    h3: {
+      fontSize: 38,
+    },
+    h4: {
+      fontSize: 24,
+    },
+    body1: {
+      fontSize: 18,
+    },
   },
 });
