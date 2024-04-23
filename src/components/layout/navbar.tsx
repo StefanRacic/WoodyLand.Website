@@ -9,7 +9,7 @@ import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
-import LogoImage from "../../../public/images/woody-circle.svg";
+import LogoImage from "../../../public/images/logo/woody-circle.svg";
 import Image from "next/image";
 import { Grid, useTheme } from "@mui/material";
 import Link from "next/link";

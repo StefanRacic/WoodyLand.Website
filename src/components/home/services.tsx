@@ -1,12 +1,11 @@
 "use client";
 import { Button, Container, Grid, Typography } from "@mui/material";
-import { randomUUID } from "crypto";
 import Image from "next/image";
 import React from "react";
-import BirthdayIcon from "../../../public/images/birthday.svg";
-import BulbIcon from "../../../public/images/bulb.svg";
-import BackyardIcon from "../../../public/images/backyard.svg";
-import ClownIcon from "../../../public/images/clown.svg";
+import BirthdayIcon from "../../../public/images/icons/birthday.svg";
+import BulbIcon from "../../../public/images/icons/bulb.svg";
+import BackyardIcon from "../../../public/images/icons/backyard.svg";
+import ClownIcon from "../../../public/images/icons/clown.svg";
 import useIsMobile from "@/hooks/use-is-mobile";
 import Link from "next/link";
 

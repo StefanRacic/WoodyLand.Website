@@ -2,8 +2,7 @@
 
 import { Box, Grid, Typography } from "@mui/material";
 import React, { FC } from "react";
-import Image from "next/image";
-import LogoImage from "../../../public/images/woody-circle.svg";
+import LogoImage from "../../../public/images/logo/woody-circle.svg";
 import useIsMobile from "@/hooks/use-is-mobile";
 import Link from "next/link";
 
@@ -60,7 +59,7 @@ export const Footer = () => {
       </Grid>
       <Grid container justifyContent="center" p={3}>
         <Typography variant="body1">
-          © Woodyland.rs {new Date().getFullYear()}
+          © woodyland.rs {new Date().getFullYear()}
         </Typography>
       </Grid>
     </Box>

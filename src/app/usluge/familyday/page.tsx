@@ -1,15 +1,12 @@
 "use client";
-import { Button, Container, Grid, Typography } from "@mui/material";
-import { randomUUID } from "crypto";
 import React from "react";
-import PaintbrushIcon from "../../../../public/images/extra.svg";
-import BulbIcon from "../../../../public/images/bulb.svg";
-import SportIcon from "../../../../public/images/sport.svg";
-import Image from "next/image";
+import BulbIcon from "../../../../public/images/icons/bulb.svg";
 import { GalleryPreview } from "@/components/shared/galleryPreview";
 import { CallToAction } from "@/components/shared/callToAction";
 import { ImageText } from "@/components/shared/image-text";
 import ServiceBanner from "@/components/shared/serviceBanner";
+import FamilyDay1 from "../../../../public/images/gallery/family-day-1.jpeg";
+import Backyard from "../../../../public/images/gallery/dvoriste.jpeg";
 
 interface Perk {
   id: string;
@@ -31,12 +28,12 @@ const FamilyDayService = () => {
       />
 
       <ImageText
-        imageUrl={BulbIcon.src}
+        imageUrl={FamilyDay1.src}
         title="Prostor za proslave"
         text="Family Day usluga uključuje i mogućnost organizacije roštilja i prostora za proslavu. Možete zakupiti posebno uređen prostor gde ćete moći da pripremate ukusne obroke na roštilju za celu porodicu. Uz naše prijateljsko osoblje, pobrinućemo se za sve vaše potrebe kako biste mogli da se maksimalno opustite, uživate u hrani i provedete vreme s najdražima."
       />
       <ImageText
-        imageUrl={BulbIcon.src}
+        imageUrl={Backyard.src}
         text="Naša igraonica se prostire na velikom dvorištu, pružajući
           vam dovoljno prostora da provedete nezaboravno vreme sa svojom
           porodicom. Možete uživati u brojnim sadržajima kao što su Velika

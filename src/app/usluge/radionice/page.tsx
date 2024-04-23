@@ -1,10 +1,9 @@
 "use client";
-import { Button, Container, Grid, Typography } from "@mui/material";
-import { randomUUID } from "crypto";
+import { Grid, Typography } from "@mui/material";
 import React from "react";
-import PaintbrushIcon from "../../../../public/images/extra.svg";
-import BulbIcon from "../../../../public/images/bulb.svg";
-import SportIcon from "../../../../public/images/sport.svg";
+import PaintbrushIcon from "../../../../public/images/icons/extra.svg";
+import BulbIcon from "../../../../public/images/icons/bulb.svg";
+import SportIcon from "../../../../public/images/icons/sport.svg";
 import Image from "next/image";
 import { GalleryPreview } from "@/components/shared/galleryPreview";
 import { CallToAction } from "@/components/shared/callToAction";

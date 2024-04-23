@@ -3,11 +3,9 @@ import { Services } from "@/components/home/services";
 import { CallToAction } from "@/components/shared/callToAction";
 import { GalleryPreview } from "@/components/shared/galleryPreview";
 import { ImageText } from "@/components/shared/image-text";
-import { Grid, useTheme } from "@mui/material";
-import { red } from "@mui/material/colors";
 import React from "react";
-import AirplaneImage from "../../public/images/airplane.jpeg";
-import PlayroomImage from "../../public/images/woodyland-banner.jpeg";
+import AirplaneImage from "../../public/images/banner/airplane.jpeg";
+import PlayroomImage from "../../public/images/banner/woodyland-banner.jpeg";
 export default function index() {
   return (
     <>

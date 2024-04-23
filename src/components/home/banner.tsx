@@ -1,7 +1,7 @@
 "use client";
 import { Grid, Typography } from "@mui/material";
 import React from "react";
-import BannerImage from "../../../public/images/banner.jpeg";
+import BannerImage from "../../../public/images/banner/banner.jpeg";
 import useIsMobile from "@/hooks/use-is-mobile";
 
 export const Banner = () => {

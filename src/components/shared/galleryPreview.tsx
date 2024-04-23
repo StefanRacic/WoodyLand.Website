@@ -1,37 +1,37 @@
 "use client";
-import {
-  Box,
-  Button,
-  Container,
-  Grid,
-  Typography,
-  useTheme,
-} from "@mui/material";
-import Image from "next/image";
+import { Box, Button, Grid, Typography } from "@mui/material";
 import React, { FC, useState } from "react";
-import BannerImage from "../../../public/images/woodyland-banner.jpeg";
 import FsLightbox from "fslightbox-react";
 import useIsMobile from "@/hooks/use-is-mobile";
 import Link from "next/link";
+import image1 from "../../../public/images/gallery/dekoracija.jpg";
+import image2 from "../../../public/images/gallery/dekoracija-7.jpg";
+import image3 from "../../../public/images/gallery/dekoracija-5.jpg";
+import image4 from "../../../public/images/gallery/dekoracija-6.jpg";
+import image5 from "../../../public/images/gallery/dekoracija-4.jpg";
+import image6 from "../../../public/images/gallery/dekoracija-3.jpg";
+import Image from "next/image";
+import { Masonry } from "@mui/lab";
 
 export const GalleryPreview = () => {
   const [imageIndex, setImageIndex] = useState(0);
   const [toggler, setToggler] = useState(false);
   const isMobile = useIsMobile();
 
-  const images = [
-    BannerImage.src,
-    BannerImage.src,
-    BannerImage.src,
-    BannerImage.src,
-    BannerImage.src,
-    BannerImage.src,
-  ];
-
   const openImage = (index: number) => {
     setImageIndex(index);
     setToggler(!toggler);
   };
+
+  const images = [
+    image4.src,
+    image5.src,
+    image2.src,
+    image1.src,
+    image3.src,
+    image6.src,
+  ];
+
   return (
     <Box>
       <Grid
@@ -56,23 +56,22 @@ export const GalleryPreview = () => {
             ispunjene radošću, smehom i avanturama.
           </Typography>
         </Grid>
-        <Grid
-          container
-          maxWidth="lg"
-          justifyContent="center"
-          spacing={3}
-          py={3}
-        >
-          {images.map((image, index) => (
-            <Grid item xs={isMobile ? 6 : 4} key={index}>
+        <Grid container maxWidth="lg" justifyContent="center" py={3}>
+          <Masonry
+            columns={{ xs: 2, md: 3 }}
+            spacing={1}
+            sx={{ display: "flex" }}
+          >
+            {images.map((image, index) => (
               <img
+                key={index}
                 src={image}
                 width="100%"
                 onClick={() => openImage(index)}
                 style={{ cursor: "pointer" }}
               />
-            </Grid>
-          ))}
+            ))}
+          </Masonry>
         </Grid>
         <Grid container justifyContent="center">
           <Link href="/galerija">

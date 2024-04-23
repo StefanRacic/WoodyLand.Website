@@ -1,10 +1,10 @@
 "use client";
 import { Grid, Typography } from "@mui/material";
 import React from "react";
-import BackyardIcon from "../../../../public/images/backyard.svg";
-import PartyIcon from "../../../../public/images/party.svg";
-import PaintbrushIcon from "../../../../public/images/extra.svg";
-import ClownIcon from "../../../../public/images/clown.svg";
+import BackyardIcon from "../../../../public/images/icons/backyard.svg";
+import PartyIcon from "../../../../public/images/icons/party.svg";
+import PaintbrushIcon from "../../../../public/images/icons/extra.svg";
+import ClownIcon from "../../../../public/images/icons/clown.svg";
 import Image from "next/image";
 import { GalleryPreview } from "@/components/shared/galleryPreview";
 import { CallToAction } from "@/components/shared/callToAction";
