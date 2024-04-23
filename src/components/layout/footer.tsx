@@ -31,11 +31,11 @@ export const Footer = () => {
             <Typography>📞 0642544579</Typography>
           </Link>
           <Link
-            href="mailto:rodjendaonica@woodyland.rs"
+            href="mailto:igraonica@woodyland.rs"
             target="_blank"
             style={{ textDecoration: "none", color: "initial" }}
           >
-            <Typography>📧 rodjendaonica@woodyland.rs</Typography>
+            <Typography>📧 igraonica@woodyland.rs</Typography>
           </Link>
           <Link
             href="https://www.instagram.com/woody__playandlearn/?hl=en"

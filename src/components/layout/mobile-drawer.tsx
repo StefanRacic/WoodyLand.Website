@@ -152,7 +152,7 @@ const MobileDrawer: FC<MobileDrawerProps> = ({ open, toggleDrawer }) => {
               variant="contained"
               fullWidth
               startIcon={<EmailOutlined />}
-              href="mailto:rodjendaonica@woodyland.rs"
+              href="mailto:igraonica@woodyland.rs"
               sx={{ backgroundColor: "#FAD26C", textTransform: "none" }}
             >
               Pošaljite email

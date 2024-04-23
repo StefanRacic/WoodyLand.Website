@@ -32,9 +32,7 @@ const Contact = () => {
           <Grid container flexDirection="column" gap={2}>
             <Typography variant="body1">🏡 Šajkaška 54, Novi Sad</Typography>
             <Typography variant="body1">📞 0642544579</Typography>
-            <Typography variant="body1">
-              📧 rodjendaonica@woodyland.rs
-            </Typography>
+            <Typography variant="body1">📧 igraonica@woodyland.rs</Typography>
             <Typography variant="body1">📸 woody__playandlearn</Typography>
           </Grid>
         </Grid>
