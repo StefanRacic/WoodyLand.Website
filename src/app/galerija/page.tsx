@@ -82,13 +82,7 @@ const Gallery = () => {
             ispunjene radošću, smehom i avanturama.
           </Typography>
         </Grid>
-        <Grid
-          container
-          maxWidth="lg"
-          justifyContent="center"
-          spacing={3}
-          py={3}
-        >
+        <Grid container maxWidth="lg" justifyContent="center" py={3}>
           <Masonry
             columns={{ xs: 2, md: 3 }}
             spacing={1}
